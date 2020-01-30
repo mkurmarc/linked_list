@@ -1,3 +1,5 @@
+import copy
+
 class Node:
 
     def __init__(self, data=None):
@@ -99,11 +101,11 @@ my_list.add_to_start(node8)
 
 print(my_list)
 
+# copy obj to keep original obj from changing
+copy_my_list = copy.copy(my_list)
+
 # create list from linked list
-node_list = my_list.create_node_list()
-
-print(my_list)
-
+node_list = copy_my_list.create_node_list()
 
 # search for value in node_list and return index if found
 print(my_list.search_val(3, node_list))
@@ -112,3 +114,5 @@ print(my_list.search_val(8, node_list))
 
 # value not present so should print not found
 print(my_list.search_val(12, node_list))
+
+print(my_list)
