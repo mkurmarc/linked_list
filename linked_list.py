@@ -46,10 +46,8 @@ class LinkedList:
             self.head = self.head.next
         return node_list
 
-    def search_val(self, x):
+    def search_val(self, x, list):
         '''return indices where x was found'''
-        node_list = self.create_node_list()
-        print(node_list)
         for index in range(len(node_list)):
             if str(x) == node_list[index]:
                 return f"{x} found at index {index}"
@@ -66,31 +64,51 @@ class LinkedList:
         '''reverse the sequence of node pointers in the linked list'''
         pass
 
-
+# create nodes
 node1 = Node(1)
 node2 = Node(2)
 node3 = Node(3)
 node4 = Node(4)
 node5 = Node(5)
 
+# create my_list obj
 my_list = LinkedList()
 
-print(my_list)
+
+
+
+# append nodes to end of linked list
 my_list.append_val(node1)
 my_list.append_val(node2)
 my_list.append_val(node3)
 my_list.append_val(node4)
 my_list.append_val(5)
 
+#print linked list with-> for visualization purposes
+print(my_list)
 
-
+# create more nodes
 node6 = Node(6)
 node7 = Node(7)
 node8 = Node(8)
+
+# insert nodes at the beginning of the linked list
 my_list.add_to_start(node6)
 my_list.add_to_start(node7)
 my_list.add_to_start(node8)
 
+print(my_list)
 
-print(my_list.search_val(6))
-print(my_list.search_val(7))
+# create list from linked list
+node_list = my_list.create_node_list()
+
+print(my_list)
+
+
+# search for value in node_list and return index if found
+print(my_list.search_val(3, node_list))
+print(my_list.search_val(5, node_list))
+print(my_list.search_val(8, node_list))
+
+# value not present so should print not found
+print(my_list.search_val(12, node_list))
