@@ -50,9 +50,14 @@ class LinkedList:
 
     def search_val(self, x, list):
         '''return indices where x was found'''
+        found = False
         for index in range(len(node_list)):
             if str(x) == node_list[index]:
+                found = True
                 return f"{x} found at index {index}"
+        if not found:
+            return f"{x} not found"
+
 
     def remove_val_by_index(self, x):
         '''remove and return value at index x provided as parameter'''
@@ -75,9 +80,6 @@ node5 = Node(5)
 
 # create my_list obj
 my_list = LinkedList()
-
-
-
 
 # append nodes to end of linked list
 my_list.append_val(node1)
