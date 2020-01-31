@@ -58,10 +58,31 @@ class LinkedList:
         if not found:
             return f"{x} not found"
 
-
-    def remove_val_by_index(self, x):
+    def remove_val_by_index(self, x, l):
         '''remove and return value at index x provided as parameter'''
-        pass
+        temp = self.head
+        found = False
+        if (temp is not None):
+            if (temp.data == x):
+                self.head = temp.next
+                temp = None
+                found = True
+
+        while (temp is not None):
+            if (temp.data == x):
+                found = True
+                break
+            previous = temp
+            temp = temp.next
+
+        if (temp == None):
+            return
+
+        prev.next = temp.next
+        temp = None
+
+        if found:
+            return l.pop(x)
 
     def length(self):
         '''return the length of the list, rep'd by the number of nodes'''
@@ -116,5 +137,7 @@ print(my_list.search_val(8, node_list))
 
 # value not present so should print not found
 print(my_list.search_val(12, node_list))
+
+print(my_list.remove_val_by_index(0, node_list))
 
 print(my_list)
